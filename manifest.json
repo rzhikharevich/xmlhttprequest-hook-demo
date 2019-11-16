@@ -1,0 +1,14 @@
+{
+    "name": "intercept",
+    "version": "1.0",
+    "description": "intercept?",
+    "manifest_version": 2,
+    "content_scripts": [{
+        "js": ["contentScript.js"],
+        "run_at": "document_start",
+        "matches": ["https://*/*"]
+    }],
+    "permissions": [
+        "activeTab"
+    ]
+}
