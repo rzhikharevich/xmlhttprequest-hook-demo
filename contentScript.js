@@ -1,39 +1,3 @@
-// function interceptData() {
-//     var xhrOverrideScript = document.createElement('script');
-//     xhrOverrideScript.type = 'text/javascript';
-//     xhrOverrideScript.innerHTML = `
-//     (function() {
-//       var XHR = XMLHttpRequest.prototype;
-//       var send = XHR.send;
-//       var open = XHR.open;
-//       XHR.open = function(method, url) {
-//           this.url = url; // the request url
-//           return open.apply(this, arguments);
-//       }
-//       let addevt = XHR.addEventListener;
-//       XHR.addEventListener = function(ty, cb) {
-//         if (ty == 'load') {
-//             return addevt.call(this, ty, function() {
-//                 console.log(arguments[0]);
-//                 return cb(arguments);
-//             });
-//         } else {
-//             return addevt.apply(this, arguments);
-//         }
-//       };
-//     })();
-//     `
-//     document.head.prepend(xhrOverrideScript);
-//   }
-//   function checkForDOM() {
-//     if (document.body && document.head) {
-//       interceptData();
-//     } else {
-//       requestIdleCallback(checkForDOM);
-//     }
-//   }
-//   requestIdleCallback(checkForDOM);
-
 function init() {
     if (document.body && document.head) {
         patchXhr();
